@@ -29,19 +29,19 @@ int Speed = 0;
 int X;
 void loop(){
     Serial.println("Turn CCW");
-    analogWrite(MTL1,1);
-    analogWrite(MTR1,0);
+    digitalWrite(MTL1,1);
+    digitalWrite(MTR1,0);
     delay(3000);
-    analogWrite(MTL1,0);
-    analogWrite(MTR1,0);
+    digitalWrite(MTL1,0);
+    digitalWrite(MTR1,0);
     delay(3000);
 
     Serial.println("Turn CW");
-    analogWrite(MTL2,0);
-    analogWrite(MTR2,1);
+    digitalWrite(MTL2,0);
+    digitalWrite(MTR2,1);
     delay(2000);
-    analogWrite(MTL2,0);
-    analogWrite(MTR2,0);
+    digitalWrite(MTL2,0);
+    digitalWrite(MTR2,0);
     
     sevenSegment.displayNum(0000);
     delay(600);
@@ -54,23 +54,23 @@ void loop(){
         sevenSegment.displayNum(0);
         if (digitalRead(2)==0){
             tone(8,200,800);
-            analogWrite(MTR2,Speed + 51);
+            digitalWrite(MTR2,Speed + 51);
             sevenSegment.displayNum(20);
             if(digitalRead(2)==0){
                 tone(8,200,800);
-                analogWrite(MTR2,Speed + 102);
+                digitalWrite(MTR2,Speed + 102);
                 sevenSegment.displayNum(40);
                 if(digitalRead(2)==0){
                     tone(8,200,800);
-                    analogWrite(MTR2,Speed + 153);
+                    digitalWrite(MTR2,Speed + 153);
                     sevenSegment.displayNum(60);
                     if(digitalRead(2)==0){
                         tone(8,200,800);
-                        analogWrite(MTR2,Speed + 204);
+                        digitalWrite(MTR2,Speed + 204);
                         sevenSegment.displayNum(80);
                         if(digitalRead(2)==0){
                             tone(8,200,800);
-                            analogWrite(MTR2,Speed + 255);
+                            digitalWrite(MTR2,Speed + 255);
                             sevenSegment.displayNum(100);
                             
                         }
@@ -81,27 +81,27 @@ void loop(){
     }
     
     for (X = 100 ; X > 0; X--){
-        analogWrite(MTR2,Speed + 255);
+        digitalWrite(MTR2,Speed + 255);
         sevenSegment.displayNum(100);
         if (digitalRead(2)==0){
             tone(8,200,800);
-            analogWrite(MTR2,Speed + 204);
+            digitalWrite(MTR2,Speed + 204);
             sevenSegment.displayNum(80);
             if(digitalRead(2)==0){
                 tone(8,200,800);
-                analogWrite(MTR2,Speed + 153);
+                digitalWrite(MTR2,Speed + 153);
                 sevenSegment.displayNum(60);
                 if(digitalRead(2)==0){
                     tone(8,200,800);
-                    analogWrite(MTR2,Speed + 102);
+                    digitalWrite(MTR2,Speed + 102);
                     sevenSegment.displayNum(40);
                     if(digitalRead(2)==0){
                         tone(8,200,800);
-                        analogWrite(MTR2,Speed + 51);
+                        digitalWrite(MTR2,Speed + 51);
                         sevenSegment.displayNum(20);
                         if(digitalRead(2)==0){
                             tone(8,200,800);
-                            analogWrite(MTR2,Speed);
+                            digitalWrite(MTR2,Speed);
                             sevenSegment.displayNum(0);
                         }
                     }
