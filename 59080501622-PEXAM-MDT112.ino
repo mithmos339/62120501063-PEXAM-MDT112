@@ -17,8 +17,6 @@ void setup(){
     pinMode(2,INPUT_PULLUP);
     pinMode(8,OUTPUT);
     tone(8,400,800);
-    delay(250);
-    tone(8,0,0);
     Serial.println("Hello MDT !!")
     pinMode(MTR1,OUTPUT);
     pinMode(MTL1,OUTPUT);
@@ -51,9 +49,7 @@ void loop(){
 
     delay(300);
     tone(8,400,900);
-    delay(250);
-    tone(8,0,0);
-
+    
     for (X = 0; X <= 100 ; x++){
         sevenSegment.displayNum(0);
         if (digitalRead(2)==0){
@@ -103,7 +99,7 @@ void loop(){
             }
         }
     }
-    
+
 
 
 
