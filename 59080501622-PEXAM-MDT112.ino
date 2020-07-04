@@ -55,17 +55,23 @@ void loop(){
     tone(8,0,0);
 
     for (X = 0; X <= 100 ; x++){
+        sevenSegment.displayNum(0);
         if (digitalRead(2)==0){
             analogWrite(MTR2,Speed + 51);
+            sevenSegment.displayNum(20);
             if(digitalRead(2)==0){
                 analogWrite(MTR2,Speed + 102);
+                sevenSegment.displayNum(40);
                 if(digitalRead(2)==0){
                     analogWrite(MTR2,Speed + 153);
+                    sevenSegment.displayNum(60);
                     if(digitalRead(2)==0){
                         analogWrite(MTR2,Speed + 204);
+                        sevenSegment.displayNum(80);
                         if(digitalRead(2)==0){
                             analogWrite(MTR2,Speed + 255);
-                            good = true;
+                            sevenSegment.displayNum(100);
+                            
                         }
                     }
                 }
@@ -74,24 +80,32 @@ void loop(){
     }
     
     for (X = 100 ; X > 0; X--){
-        if (good == true;){
-            if (digitalRead(2)==0){
-                analogWrite(MTR2,Speed + 204);
+        analogWrite(MTR2,Speed + 255);
+        sevenSegment.displayNum(100);
+        if (digitalRead(2)==0){
+            analogWrite(MTR2,Speed + 204);
+            sevenSegment.displayNum(80);
+            if(digitalRead(2)==0){
+                analogWrite(MTR2,Speed + 153);
+                sevenSegment.displayNum(60);
                 if(digitalRead(2)==0){
-                    analogWrite(MTR2,Speed + 153);
+                    analogWrite(MTR2,Speed + 102);
+                    sevenSegment.displayNum(40);
                     if(digitalRead(2)==0){
-                        analogWrite(MTR2,Speed + 102);
+                        analogWrite(MTR2,Speed + 51);
+                        sevenSegment.displayNum(20);
                         if(digitalRead(2)==0){
-                            analogWrite(MTR2,Speed + 51);
-                        
+                            analogWrite(MTR2,Speed);
+                            sevenSegment.displayNum(0);
                         }
                     }
                 }
             }
         }
     }
-
     
+
+
 
     
 
