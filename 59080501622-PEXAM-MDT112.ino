@@ -8,6 +8,8 @@ const int MTL2 = 10;
 const int CLK = 15;
 const int DIO = 14;
 
+bool good = false;
+
 TM1637 sevenSegment(CLK, DIO);
 
 void setup(){
@@ -26,6 +28,7 @@ void setup(){
 
 }
 int Speed = 0;
+int X;
 void loop(){
     Serial.println("Turn CCW");
     analogWrite(MTL1,1);
@@ -51,21 +54,44 @@ void loop(){
     delay(250);
     tone(8,0,0);
 
-    if (digitalRead(2)==0){
-        analogWrite(MTR2,Speed + 45);
-        if(digitalRead(2)==0){
-            analogWrite(MTR2,Speed + 90);
+    for (X = 0; X <= 100 ; x++){
+        if (digitalRead(2)==0){
+            analogWrite(MTR2,Speed + 51);
             if(digitalRead(2)==0){
-                analogWrite(MTR2,Speed + 135);
+                analogWrite(MTR2,Speed + 102);
                 if(digitalRead(2)==0){
-                    analogWrite(MTR2,Speed + 180);
+                    analogWrite(MTR2,Speed + 153);
                     if(digitalRead(2)==0){
-                        analogWrite(MTR2,Speed + 225);
+                        analogWrite(MTR2,Speed + 204);
+                        if(digitalRead(2)==0){
+                            analogWrite(MTR2,Speed + 255);
+                            good = true;
+                        }
                     }
                 }
             }
         }
     }
+    
+    for (X = 100 ; X > 0; X--){
+        if (good == true;){
+            if (digitalRead(2)==0){
+                analogWrite(MTR2,Speed + 204);
+                if(digitalRead(2)==0){
+                    analogWrite(MTR2,Speed + 153);
+                    if(digitalRead(2)==0){
+                        analogWrite(MTR2,Speed + 102);
+                        if(digitalRead(2)==0){
+                            analogWrite(MTR2,Speed + 51);
+                        
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
 
     
 
