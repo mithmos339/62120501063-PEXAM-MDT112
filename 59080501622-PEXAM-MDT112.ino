@@ -12,6 +12,7 @@ TM1637 sevenSegment(CLK, DIO);
 
 void setup(){
     sevenSegment.init();
+    pinMode(2,INPUT_PULLUP);
     pinMode(8,OUTPUT);
     tone(8,400,800);
     delay(250);
@@ -24,7 +25,7 @@ void setup(){
     Serial.begin(9600);
 
 }
-
+int Speed = 0;
 void loop(){
     Serial.println("Turn CCW");
     analogWrite(MTL1,1);
@@ -49,6 +50,25 @@ void loop(){
     tone(8,400,900);
     delay(250);
     tone(8,0,0);
+
+    if (digitalRead(2)==0){
+        analogWrite(MTR2,Speed + 45);
+        if(digitalRead(2)==0){
+            analogWrite(MTR2,Speed + 90);
+            if(digitalRead(2)==0){
+                analogWrite(MTR2,Speed + 135);
+                if(digitalRead(2)==0){
+                    analogWrite(MTR2,Speed + 180);
+                    if(digitalRead(2)==0){
+                        analogWrite(MTR2,Speed + 225);
+                    }
+                }
+            }
+        }
+    }
+
+    
+
 
 
 }
