@@ -45,7 +45,7 @@ void loop(){
     
     sevenSegment.displayNum(0000);
     delay(600);
-    sevenSegment.clear();
+    sevenSegment.displayStr("    ");
 
     delay(300);
     tone(8,400,900);
