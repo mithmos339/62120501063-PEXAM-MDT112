@@ -8,23 +8,18 @@ const int MTL2 = 10;
 const int CLK = 15;
 const int DIO = 14;
 
-bool good = false;
-
 TM1637 sevenSegment(CLK, DIO);
 
 void setup(){
+    pinMode (MTR1,OUTPUT);
+    pinMode (MTL1,OUTPUT);
+    pinMode (2,INPUT_PULLUP);
+    pinMode (8,OUTPUT);
     sevenSegment.init();
-    pinMode(2,INPUT_PULLUP);
-    pinMode(8,OUTPUT);
     tone(8,400,800);
-    Serial.println("Hello MDT !!")
-    pinMode(MTR1,OUTPUT);
-    pinMode(MTL1,OUTPUT);
-    pinMode(MTR2,OUTPUT);
-    pinMode(MTL2,OUTPUT);
-    Serial.begin(9600);
-
+    Serial.println("Hello MDT !!");
 }
+
 int Speed = 0;
 int X;
 void loop(){
@@ -37,11 +32,11 @@ void loop(){
     delay(3000);
 
     Serial.println("Turn CW");
-    digitalWrite(MTL2,0);
-    digitalWrite(MTR2,1);
+    digitalWrite(MTL1,0);
+    digitalWrite(MTR1,1);
     delay(2000);
-    digitalWrite(MTL2,0);
-    digitalWrite(MTR2,0);
+    digitalWrite(MTL1,0);
+    digitalWrite(MTR1,0);
     
     sevenSegment.displayNum(0000);
     delay(600);
@@ -50,27 +45,27 @@ void loop(){
     delay(300);
     tone(8,400,900);
     
-    for (X = 0; X <= 100 ; x++){
+    for (X = 0; X <= 100 ; X++){
         sevenSegment.displayNum(0);
         if (digitalRead(2)==0){
             tone(8,200,800);
-            digitalWrite(MTR2,Speed + 51);
+            digitalWrite(MTR1,Speed + 51);
             sevenSegment.displayNum(20);
             if(digitalRead(2)==0){
                 tone(8,200,800);
-                digitalWrite(MTR2,Speed + 102);
+                digitalWrite(MTR1,Speed + 102);
                 sevenSegment.displayNum(40);
                 if(digitalRead(2)==0){
                     tone(8,200,800);
-                    digitalWrite(MTR2,Speed + 153);
+                    digitalWrite(MTR1,Speed + 153);
                     sevenSegment.displayNum(60);
                     if(digitalRead(2)==0){
                         tone(8,200,800);
-                        digitalWrite(MTR2,Speed + 204);
+                        digitalWrite(MTR1,Speed + 204);
                         sevenSegment.displayNum(80);
                         if(digitalRead(2)==0){
                             tone(8,200,800);
-                            digitalWrite(MTR2,Speed + 255);
+                            digitalWrite(MTR1,Speed + 255);
                             sevenSegment.displayNum(100);
                             
                         }
@@ -81,27 +76,27 @@ void loop(){
     }
     
     for (X = 100 ; X > 0; X--){
-        digitalWrite(MTR2,Speed + 255);
+        digitalWrite(MTR1,Speed + 255);
         sevenSegment.displayNum(100);
         if (digitalRead(2)==0){
             tone(8,200,800);
-            digitalWrite(MTR2,Speed + 204);
+            digitalWrite(MTR1,Speed + 204);
             sevenSegment.displayNum(80);
             if(digitalRead(2)==0){
                 tone(8,200,800);
-                digitalWrite(MTR2,Speed + 153);
+                digitalWrite(MTR1,Speed + 153);
                 sevenSegment.displayNum(60);
                 if(digitalRead(2)==0){
                     tone(8,200,800);
-                    digitalWrite(MTR2,Speed + 102);
+                    digitalWrite(MTR1,Speed + 102);
                     sevenSegment.displayNum(40);
                     if(digitalRead(2)==0){
                         tone(8,200,800);
-                        digitalWrite(MTR2,Speed + 51);
+                        digitalWrite(MTR1,Speed + 51);
                         sevenSegment.displayNum(20);
                         if(digitalRead(2)==0){
                             tone(8,200,800);
-                            digitalWrite(MTR2,Speed);
+                            digitalWrite(MTR1,Speed);
                             sevenSegment.displayNum(0);
                         }
                     }
@@ -109,12 +104,4 @@ void loop(){
             }
         }
     }
-
-
-
-
-    
-
-
-
 }
