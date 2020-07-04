@@ -18,11 +18,7 @@ void setup(){
     sevenSegment.init();
     tone(8,400,800);
     Serial.println("Hello MDT !!");
-}
-
-int Speed = 0;
-int X;
-void loop(){
+    
     Serial.println("Turn CCW");
     digitalWrite(MTL1,1);
     digitalWrite(MTR1,0);
@@ -44,7 +40,11 @@ void loop(){
 
     delay(300);
     tone(8,400,900);
-    
+}
+
+int Speed = 0;
+int X;
+void loop(){
     for (X = 0; X <= 100 ; X++){
         sevenSegment.displayNum(0);
         if (digitalRead(2)==0){
@@ -104,4 +104,12 @@ void loop(){
             }
         }
     }
+
+
+
+
+    
+
+
+
 }
