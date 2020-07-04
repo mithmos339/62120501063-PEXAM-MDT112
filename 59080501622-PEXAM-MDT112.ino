@@ -14,6 +14,8 @@ void setup(){
     sevenSegment.init();
     pinMode(8,OUTPUT);
     tone(8,400,800);
+    delay(250);
+    tone(8,0,0);
     Serial.println("Hello MDT !!")
     pinMode(MTR1,OUTPUT);
     pinMode(MTL1,OUTPUT);
@@ -42,5 +44,11 @@ void loop(){
     sevenSegment.displayNum(0000);
     delay(600);
     sevenSegment.clear();
+
+    delay(300);
+    tone(8,400,900);
+    delay(250);
+    tone(8,0,0);
+
 
 }
