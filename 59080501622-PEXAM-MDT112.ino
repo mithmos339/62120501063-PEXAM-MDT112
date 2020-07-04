@@ -53,18 +53,23 @@ void loop(){
     for (X = 0; X <= 100 ; x++){
         sevenSegment.displayNum(0);
         if (digitalRead(2)==0){
+            tone(8,200,800);
             analogWrite(MTR2,Speed + 51);
             sevenSegment.displayNum(20);
             if(digitalRead(2)==0){
+                tone(8,200,800);
                 analogWrite(MTR2,Speed + 102);
                 sevenSegment.displayNum(40);
                 if(digitalRead(2)==0){
+                    tone(8,200,800);
                     analogWrite(MTR2,Speed + 153);
                     sevenSegment.displayNum(60);
                     if(digitalRead(2)==0){
+                        tone(8,200,800);
                         analogWrite(MTR2,Speed + 204);
                         sevenSegment.displayNum(80);
                         if(digitalRead(2)==0){
+                            tone(8,200,800);
                             analogWrite(MTR2,Speed + 255);
                             sevenSegment.displayNum(100);
                             
@@ -79,18 +84,23 @@ void loop(){
         analogWrite(MTR2,Speed + 255);
         sevenSegment.displayNum(100);
         if (digitalRead(2)==0){
+            tone(8,200,800);
             analogWrite(MTR2,Speed + 204);
             sevenSegment.displayNum(80);
             if(digitalRead(2)==0){
+                tone(8,200,800);
                 analogWrite(MTR2,Speed + 153);
                 sevenSegment.displayNum(60);
                 if(digitalRead(2)==0){
+                    tone(8,200,800);
                     analogWrite(MTR2,Speed + 102);
                     sevenSegment.displayNum(40);
                     if(digitalRead(2)==0){
+                        tone(8,200,800);
                         analogWrite(MTR2,Speed + 51);
                         sevenSegment.displayNum(20);
                         if(digitalRead(2)==0){
+                            tone(8,200,800);
                             analogWrite(MTR2,Speed);
                             sevenSegment.displayNum(0);
                         }
